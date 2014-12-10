@@ -96,5 +96,5 @@ You'll be able to edit your API config from `app/packages/maurocasas/laravel-man
 
 ---------------------------
 
-BTC: 1NrXMzNjd2PebgP54xoQk6ujMquwXp3SpA
-Twitter: @m__casas
+* BTC: 1NrXMzNjd2PebgP54xoQk6ujMquwXp3SpA
+* Twitter: @m__casas
