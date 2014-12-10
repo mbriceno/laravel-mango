@@ -36,7 +36,10 @@ You'll be able to edit your API config from `app/packages/maurocasas/laravel-man
 ## Usage
 
 * [API Reference](https://developers.getmango.com/)
-* Requires Guzzle 4+
+* Requires [Guzzle 4+](http://docs.guzzlephp.org/en/guzzle4/)
+
+All responses are JSON decoded, and if you want to catch exceptions, you need to 
+catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all status codes.
 
 #### Charges
 
