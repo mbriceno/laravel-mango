@@ -76,7 +76,7 @@
          */
         protected function build($verb = 'get', $url, $params = array()){
             $request = $this->guzzle->$verb($url, array(
-                'body' => count($params) != 0 ? $params : null,
+                'body' => count($params) != 0 ? json_encode($params) : null,
                 ));
 
             return json_decode($request->getBody());

@@ -18,7 +18,7 @@
         }
 
         public function all($params = array()){
-            return $this->request->get('customers', $params);
+            return $this->request->get('customers/', $params);
         }
 
         public function find($id){
@@ -28,8 +28,8 @@
         }
 
         public function create($params = array()){
-            $this->data = $this->request->post('customers', $params);
-
+            $this->data = $this->request->post('customers/', $params);
+            $this->currentCustomerId = $this->data->uid;
             return $this->data;
         }
 

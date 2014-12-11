@@ -29,6 +29,9 @@
 
         public function create($params = array()){
             $this->data = $this->request->post('refunds', $params);
+            $this->currentRefundId = $this->data->uid;
+
+            return $this;
         }
 
     }

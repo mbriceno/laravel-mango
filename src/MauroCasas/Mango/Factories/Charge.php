@@ -24,11 +24,15 @@
         public function find($id){
             $this->data = $this->request->get('charges/' . $id);
             $this->currentChargeId = $id;
+            
             return $this;
         }
 
         public function create($params = array()){
             $this->data = $this->request->post('charges', $params);
+            $this->currentChargeId = $this->data->uid;
+
+            return $this->data;
         }
 
     }

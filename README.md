@@ -41,7 +41,7 @@ You'll be able to edit your API config from `app/packages/maurocasas/laravel-man
 All responses are JSON decoded, and if you want to catch exceptions, you need to 
 catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all status codes.
 
-#### Charges
+#### [Charges](https://developers.getmango.com/en/api/charges/)
 
 **List all charges**
 	
@@ -55,7 +55,7 @@ catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all sta
 	
 	Mango::charges()->create(array('foo' => 'bar'))
 
-#### Refunds
+#### [Refunds](https://developers.getmango.com/en/api/refunds/)
 
 **List all refunds**
 	
@@ -69,7 +69,7 @@ catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all sta
 	
 	Mango::refunds()->create(array('foo' => 'bar'));
 
-#### Customers
+#### [Customers](https://developers.getmango.com/en/api/customers/)
 
 **List all customers**
 
@@ -87,7 +87,7 @@ catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all sta
 
 	Mango::customers()
 			->find('xyz')
-			->update('ID HERE', array('param1' => 'value1', 'param2' => 'value2'));
+			->update(array('param1' => 'value1', 'param2' => 'value2'));
 
 **Delete a customer**
 
@@ -95,7 +95,7 @@ catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all sta
 			->find('xyz')
 			->delete();
 
-#### Cards
+#### [Cards](https://developers.getmango.com/en/api/cards/)
 
 **List all cards**
 
@@ -113,7 +113,7 @@ catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all sta
 
 	Mango::cards()
 			->find('xyz')
-			->update('ID HERE', array('param1' => 'value1', 'param2' => 'value2'));
+			->update(array('param1' => 'value1', 'param2' => 'value2'));
 
 **Delete a card**
 
@@ -121,7 +121,7 @@ catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all sta
 			->find('xyz')
 			->delete();
 
-#### Queue
+#### [Queue](https://developers.getmango.com/en/api/queue/)
 
 **Get all that sexy queue**
 
@@ -141,7 +141,7 @@ catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all sta
 
 	Mango::queue()->clear();
 
-#### Installments
+#### [Installments](https://developers.getmango.com/en/api/installments/)
 
 	Mango::installments()->all();
 

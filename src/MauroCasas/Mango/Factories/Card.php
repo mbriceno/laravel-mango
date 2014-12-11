@@ -24,11 +24,15 @@
         public function find($id){
             $this->data = $this->request->get('cards/' . $id, $params);
             $this->currentCardId = $id;
+
             return $this;
         }
 
         public function create($params = array()){
             $this->data = $this->request->post('cards', $params);
+            $this->currentCardId = $this->data->uid;
+            
+            return $this;
         }
 
         public function update($params = array()){
