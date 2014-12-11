@@ -29,7 +29,6 @@
             $this->_queue = $queue;
         }
 
-
         /**
          * Returns the customers object
          * @return Customer

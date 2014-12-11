@@ -43,6 +43,14 @@
             return $this->request->delete('cards/' . $this->currentCardId);
         }
 
+        public function ccv($ccv){
+            return $this->request->post('ccvs/', array('ccv' => $ccv), 'public');
+        }
+
+        public function token($params){
+            return $this->request->post('tokens/', $params, 'public');
+        }
+
     }
 
 }

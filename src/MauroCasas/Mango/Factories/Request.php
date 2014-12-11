@@ -29,10 +29,11 @@
          * @uses build()
          * @param $url string
          * @param $params array
+         * @param $authType string secret|public Which API key to use
          * @return json
          */
-        public function get($url, $params = array()){
-            return $this->build('get', $url, $params);
+        public function get($url, $params = array(), $authType = 'secret'){
+            return $this->build('get', $url, $params, $authType);
         }  
 
         /** 
@@ -40,10 +41,11 @@
          * @uses build()
          * @param $url string
          * @param $params array
+         * @param $authType string secret|public Which API key to use
          * @return json
          */
-        public function post($url, $params = array()){
-            return $this->build('post', $url, $params);            
+        public function post($url, $params = array(), $authType = 'secret'){
+            return $this->build('post', $url, $params, $authType);            
         }
 
         /** 
@@ -51,20 +53,22 @@
          * @uses build()
          * @param $url string
          * @param $params array
+         * @param $authType string secret|public Which API key to use
          * @return json
          */
-        public function patch($url, $params = array()){
-            return $this->build('patch', $url, $params);            
+        public function patch($url, $params = array(), $authType = 'secret'){
+            return $this->build('patch', $url, $params, $authType);            
         }
 
         /** 
          * Calls request build using DELETE verb
          * @uses build()
          * @param $url string
+         * @param $authType string secret|public Which API key to use
          * @return json
          */
-        public function delete($url){
-            return $this->build('delete', $url);            
+        public function delete($url, $authType = 'secret'){
+            return $this->build('delete', $url, null, $authType);            
         }
 
         /**
@@ -72,11 +76,17 @@
          * @param $verb string GET|POST|PATCH|DELETE
          * @param $url string
          * @param $params array()
+         * @param $authType string secret|public Wether to use the public key or the secret one
          * @return json
          */
-        protected function build($verb = 'get', $url, $params = array()){
+        protected function build($verb = 'get', $url, $params = array(), $authType = 'secret'){
             $request = $this->guzzle->$verb($url, array(
                 'body' => count($params) != 0 ? json_encode($params) : null,
+                'auth' => $authType == 'secret' ? array(
+                    $this->config['secret'], $this->config['secret']
+                    ) : array(
+                    $this->config['public'], $this->config['secret']
+                    )
                 ));
 
             return json_decode($request->getBody());

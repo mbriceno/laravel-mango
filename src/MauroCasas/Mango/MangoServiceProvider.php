@@ -39,7 +39,7 @@
 								'Accept' => 'application/json',
 								),
 							'auth' => array(
-								$app['config']->get('mango::config')['secret'],
+								$app['config']->get('mango::config')['public'],
 								$app['config']->get('mango::config')['secret'],
 								)
 							)

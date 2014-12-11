@@ -46,6 +46,22 @@
          */
         public function delete();
 
+        /**
+         * Generate a token based on a CCV code
+         * @param int $ccv
+         * @return array
+         * @since 0.1
+         */
+        public function ccv($ccv);
+
+        /**
+         * Generate a token based a on cards info
+         * @param array $params
+         * @return array
+         * @since 0.1
+         */
+        public function token($params);
+
     }
 
 }

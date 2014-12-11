@@ -41,6 +41,10 @@ You'll be able to edit your API config from `app/packages/maurocasas/laravel-man
 All responses are JSON decoded, and if you want to catch exceptions, you need to 
 catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all status codes.
 
+All "create" methods will define the current ID to the related object, so you could for example do
+
+	Mango::cards()->create(array('foo' => 'bar'))->update(array('foo' => 'bar2'))->delete();
+
 #### [Charges](https://developers.getmango.com/en/api/charges/)
 
 **List all charges**
@@ -85,15 +89,11 @@ catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all sta
 
 **Update a customer**
 
-	Mango::customers()
-			->find('xyz')
-			->update(array('param1' => 'value1', 'param2' => 'value2'));
+	Mango::customers()->find('xyz')->update(array('param1' => 'value1', 'param2' => 'value2'));
 
 **Delete a customer**
 
-	Mango::customers()
-			->find('xyz')
-			->delete();
+	Mango::customers()->find('xyz')->delete();
 
 #### [Cards](https://developers.getmango.com/en/api/cards/)
 
@@ -111,15 +111,25 @@ catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all sta
 
 **Update a card**
 
-	Mango::cards()
-			->find('xyz')
-			->update(array('param1' => 'value1', 'param2' => 'value2'));
+	Mango::cards()->find('xyz')->update(array('param1' => 'value1', 'param2' => 'value2'));
 
 **Delete a card**
 
-	Mango::cards()
-			->find('xyz')
-			->delete();
+	Mango::cards()->find('xyz')->delete();
+
+**Generate a CCV token** [API Reference](https://developers.getmango.com/en/api/ccvs/)
+
+	Mango::cards()->ccv(123);
+
+**Generate a card token based on it's info** [API Reference](https://developers.getmango.com/en/api/tokens/)
+	
+	Mango::cards()->token(array(
+		'number' => '4507990000000010',
+		'exp_month' => '3',
+		'exp_year' => ' 2015',
+		'holdername' => 'Test Visa',
+		'type' => 'visa'
+		));
 
 #### [Queue](https://developers.getmango.com/en/api/queue/)
 
@@ -133,9 +143,7 @@ catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all sta
 
 **Delete an specific item from the queue**
 
-	Mango::queue()
-			->find('xyz')
-			->delete();
+	Mango::queue()->find('xyz')->delete();
 
 **Clear the queue**
 
