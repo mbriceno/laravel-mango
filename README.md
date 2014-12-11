@@ -17,6 +17,10 @@ Finally add `MauroCasas\Mango\MangoServiceProvider` to your $providers under `ap
 
 You can now use the **Mango** facade
 
+If you don't want to use the **Mango** facade, you may set an alias under `app/config/app.php`
+
+	'MyOtherFacade' => 'Mango'
+
 --------------
 
 ## Configuration
