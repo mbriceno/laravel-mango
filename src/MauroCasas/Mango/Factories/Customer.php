@@ -29,6 +29,8 @@
 
         public function create($params = array()){
             $this->data = $this->request->post('customers', $params);
+
+            return $this->data;
         }
 
         public function update($params = array()){

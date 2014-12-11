@@ -26,45 +26,45 @@
 
         /** 
          * Calls request build using GET verb
-         * @uses request()
+         * @uses build()
          * @param $url string
          * @param $params array
          * @return json
          */
         public function get($url, $params = array()){
-            return $this->request('get', $url, $params);
+            return $this->build('get', $url, $params);
         }  
 
         /** 
          * Calls request build using POST verb
-         * @uses request()
+         * @uses build()
          * @param $url string
          * @param $params array
          * @return json
          */
         public function post($url, $params = array()){
-            return $this->request('post', $url, $params);            
+            return $this->build('post', $url, $params);            
         }
 
         /** 
          * Calls request build using PATCH verb
-         * @uses request()
+         * @uses build()
          * @param $url string
          * @param $params array
          * @return json
          */
         public function patch($url, $params = array()){
-            return $this->request('patch', $url, $params);            
+            return $this->build('patch', $url, $params);            
         }
 
         /** 
          * Calls request build using DELETE verb
-         * @uses request()
+         * @uses build()
          * @param $url string
          * @return json
          */
         public function delete($url){
-            return $this->request('delete', $url);            
+            return $this->build('delete', $url);            
         }
 
         /**
@@ -74,7 +74,7 @@
          * @param $params array()
          * @return json
          */
-        protected function request($verb = 'get', $url, $params = array()){
+        protected function build($verb = 'get', $url, $params = array()){
             $request = $this->guzzle->$verb($url, array(
                 'body' => count($params) != 0 ? $params : null,
                 ));
