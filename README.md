@@ -1,7 +1,7 @@
 Mango for Laravel
 =================
 
-http://getmango.com
+http://getmango.com API wrapper for Laravel.
 
 ## Installation
 #### Composer
@@ -29,13 +29,13 @@ If not, try the following
 	
 	php artisan config:publish --path="dir/to/maurocasas/laravel-mango" laravel-mango
 
-You'll be able to edit your API config from `app/packages/maurocasas/laravel-mango`
+You'll be able to edit your API config from `app/packages/maurocasas/laravel-mango/config.php`
 
 ---------------
 
 ## Usage
 
-* [API Reference](https://developers.getmango.com/)
+* [Mango API Reference](https://developers.getmango.com/)
 * Requires [Guzzle 4+](http://docs.guzzlephp.org/en/guzzle4/)
 
 All responses are JSON decoded, and if you want to catch exceptions, you need to 
@@ -43,61 +43,109 @@ catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all sta
 
 #### Charges
 
-	Mango::charges();
+**List all charges**
+	
+	Mango::charges()->all();
 
-	Mango::findCharge('ID HERE');
+**Find a charge**
+	
+	Mango::charges()->find('XYZ');
 
-	Mango::charge(array('param1' => 'value1', 'param2' => 'value2'));
+**Create a charge**
+	
+	Mango::charges()->create(array('foo' => 'bar'))
 
 #### Refunds
 
-	Mango::refunds();
+**List all refunds**
+	
+	Mango::refunds()->all();
 
-	Mango::findRefund('ID HERE');
+**Find a refund**
+	
+	Mango::refunds()->find('XYZ');
 
-	Mango::refund(array('param1' => 'value1', 'param2' => 'value2'));
+**Generate a refund**
+	
+	Mango::refunds()->create(array('foo' => 'bar'));
 
 #### Customers
 
-	Mango::customers();
+**List all customers**
 
-	Mango::findCustomer('ID HERE');
+	Mango::customers()->all();
 
-	Mango::createCustomer(array('param1' => 'value1', 'param2' => 'value2'));
+**Find a customer**
 
-	Mango::updateCustomer('ID HERE', array('param1' => 'value1', 'param2' => 'value2'));
+	Mango::customers()->find('xyz');
 
-	Mango::deleteCustomer('ID HERE');
+**Create a customer**
+
+	Mango::customers()->create(array('param1' => 'value1', 'param2' => 'value2'));
+
+**Update a customer**
+
+	Mango::customers()
+			->find('xyz')
+			->update('ID HERE', array('param1' => 'value1', 'param2' => 'value2'));
+
+**Delete a customer**
+
+	Mango::customers()
+			->find('xyz')
+			->delete();
 
 #### Cards
 
-	Mango::cards();
+**List all cards**
 
-	Mango::findCard('ID HERE');
+	Mango::cards()->all();
 
-	Mango::createCard(array('param1' => 'value1', 'param2' => 'value2'));
+**Find a card**
 
-	Mango::updateCard('ID HERE', array('param1' => 'value1', 'param2' => 'value2'));
+	Mango::cards()->find('xyz');
 
-	Mango::deleteCard('ID HERE');
+**Create a card**
+
+	Mango::cards()->create(array('param1' => 'value1', 'param2' => 'value2'));
+
+**Update a card**
+
+	Mango::cards()
+			->find('xyz')
+			->update('ID HERE', array('param1' => 'value1', 'param2' => 'value2'));
+
+**Delete a card**
+
+	Mango::cards()
+			->find('xyz')
+			->delete();
 
 #### Queue
 
-	Mango::queue();
+**Get all that sexy queue**
 
-	Mango::findQueueItem('ID HERE');
+	Mango::queue()->all();
 
-	Mango::deleteQueueItem('ID HERE');
+**Find an item from the queue**
 
-	Mango::emptyQueue();
+	Mango::queue()->find('xyz');
+
+**Delete an specific item from the queue**
+
+	Mango::queue()
+			->find('xyz')
+			->delete();
+
+**Clear the queue**
+
+	Mango::queue()->clear();
 
 #### Installments
 
-	Mango::installments()
-
-
+	Mango::installments()->all();
 
 ---------------------------
 
-* BTC: 1NrXMzNjd2PebgP54xoQk6ujMquwXp3SpA
-* Twitter: @m__casas
+* **BTC:** 1NrXMzNjd2PebgP54xoQk6ujMquwXp3SpA
+* **Twitter:** @m__casas

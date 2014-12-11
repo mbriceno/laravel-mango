@@ -30,22 +30,31 @@
 		public function register()
 		{
 			$this->app['mango'] = $this->app->share(function($app){
-				return new Mango(
-					$app['config']->get('mango::config'), 
+				$request = new Factories\Request($app['config']->get('mango::config'),
 					new GuzzleHttp\Client(array(
 						'base_url' => $app['config']->get('mango::config')['endpoint'],
 						'defaults' => array(
 							'headers' => array(
 								'Content-Type' => 'application/json',
 								'Accept' => 'application/json',
-								//'Authorization' => 'Basic ' . base64_encode($app['config']->get('mango::config')['secret'])
 								),
 							'auth' => array(
 								$app['config']->get('mango::config')['secret'],
 								$app['config']->get('mango::config')['secret'],
 								)
 							)
-						)));
+						))
+					);
+
+				return new Mango(
+					$app['config']->get('mango::config'),
+					new Factories\Customer($request),
+					new Factories\Charge($request),
+					new Factories\Installment($request),
+					new Factories\Card($request),
+					new Factories\Refund($request),
+					new Factories\Queue($request)
+					);
 			});
 
 			$this->app->bind('MauroCasas\Mango\Mango', function($app){
