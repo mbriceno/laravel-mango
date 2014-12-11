@@ -6,7 +6,7 @@ http://getmango.com API wrapper for Laravel.
 ## Installation
 #### Composer
 
-	composer required maurocasas/laravel-mango
+	composer require maurocasas/laravel-mango
 
 #### Manual
 
@@ -40,10 +40,6 @@ You'll be able to edit your API config from `app/packages/maurocasas/laravel-man
 
 All responses are JSON decoded, and if you want to catch exceptions, you need to 
 catch the [Guzzle Exceptions](http://docs.guzzlephp.org/en/guzzle4/) for all status codes.
-
-All "create" methods will define the current ID to the related object, so you could for example do
-
-	Mango::cards()->create(array('foo' => 'bar'))->update(array('foo' => 'bar2'))->delete();
 
 #### [Charges](https://developers.getmango.com/en/api/charges/)
 
