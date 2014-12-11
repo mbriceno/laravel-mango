@@ -18,7 +18,7 @@
         }
 
         public function all($params = array()){
-            return $this->request->get('cards', $params);
+            return $this->request->get('cards/', $params);
         }
 
         public function find($id){
@@ -29,7 +29,7 @@
         }
 
         public function create($params = array()){
-            $this->data = $this->request->post('cards', $params);
+            $this->data = $this->request->post('cards/', $params);
             $this->currentCardId = $this->data->uid;
             
             return $this;
