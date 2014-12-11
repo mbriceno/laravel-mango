@@ -18,7 +18,7 @@
         }
 
         public function all($params = array()){
-            return $this->request->get('queue', $params);
+            return $this->request->get('queue/', $params);
         }
 
         public function find($id){
@@ -32,7 +32,7 @@
         }
 
         public function clear(){
-            return $this->request->delete('queue');
+            return $this->request->delete('queue/');
         }
 
     }

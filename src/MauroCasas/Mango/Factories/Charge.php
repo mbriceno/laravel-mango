@@ -18,7 +18,7 @@
         }
 
         public function all($params = array()){
-            return $this->request->get('charges', $params);
+            return $this->request->get('charges/', $params);
         }
 
         public function find($id){
@@ -29,7 +29,7 @@
         }
 
         public function create($params = array()){
-            $this->data = $this->request->post('charges', $params);
+            $this->data = $this->request->post('charges/', $params);
             $this->currentChargeId = $this->data->uid;
 
             return $this->data;

@@ -18,7 +18,7 @@
         }
 
         public function all($params = array()){
-            return $this->request->get('installments', $params);
+            return $this->request->get('installments/', $params);
         }
 
     }
